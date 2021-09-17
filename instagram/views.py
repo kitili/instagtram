@@ -15,6 +15,12 @@ from django.contrib.auth.decorators import login_required
 from .models import Image,Comment
 from user.models import User,Profile
 
+def index(request):
+    # imports photos and save it in database
+    photo = photos.objects.all()
+    # adding context 
+    ctx = {'photo':photo}
+    return render(request, 'index.html')
 
 def home(request):
     posts= Image.objects.all(),

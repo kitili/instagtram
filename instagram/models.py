@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from user.models import Profile
+from cloudinary.models import CloudinaryField
 # Create your models here.
 class Image(models.Model):
     image = models.ImageField(upload_to='images b/', default="photos/dance.jpg")
@@ -11,7 +12,11 @@ class Image(models.Model):
     likes = models.IntegerField(default=0, null=True)
     caption = models.CharField(max_length=140, default="avechi")
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True)
-
+     # title field
+    title = models.CharField(max_length=100)
+    #image field
+    image = CloudinaryField('image')
+                            
     def __str__(self):
         return self.title
 

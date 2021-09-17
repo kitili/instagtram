@@ -18,6 +18,7 @@ urlpatterns=[
     url(r'^search/',views.search_results, name='search_results'),
 
     url(r'^post/(?P<pk>\d+)/likes/$', views.likes, name='likes'),
+    url('', views.index, name='index'),
 
 ]
 if settings.DEBUG:
